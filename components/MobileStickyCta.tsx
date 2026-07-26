@@ -46,7 +46,7 @@ export default function MobileStickyCta() {
           aria-expanded={open}
           aria-controls="mobile-register-sheet"
         >
-          Get The Enclave Milton details
+          Get floor plans &amp; details
         </button>
       </div>
 

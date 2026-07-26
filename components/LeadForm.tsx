@@ -12,6 +12,8 @@ type LeadFormProps = {
   defaultModel?: string;
   compact?: boolean;
   idPrefix?: string;
+  /** Stronger CTA copy for hero placement */
+  hero?: boolean;
 };
 
 function formatPhoneInput(value: string) {
@@ -25,6 +27,7 @@ export default function LeadForm({
   defaultModel = ALL_MODELS_VALUE,
   compact = false,
   idPrefix = "lead",
+  hero = false,
 }: LeadFormProps) {
   const baseId = useId().replace(/:/g, "");
   const field = (name: string) => `${idPrefix}-${baseId}-${name}`;
@@ -156,7 +159,11 @@ export default function LeadForm({
         </select>
       </div>
       <button type="submit" className="btn btn--primary" disabled={status === "loading"}>
-        {status === "loading" ? "Sending…" : "Get floor plans & details"}
+        {status === "loading"
+          ? "Sending…"
+          : hero
+            ? "Send me floor plans & details"
+            : "Get floor plans & details"}
       </button>
       <p className={styles.disclaimer}>{FORM_DISCLAIMER}</p>
       {status === "error" && (
