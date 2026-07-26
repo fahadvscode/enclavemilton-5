@@ -1,0 +1,33 @@
+{
+  "name": "theenclavesundial-ca-site-e",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "prebuild": "BUILD_DATE=$(date -u +%Y-%m-%d) node scripts/generate-seo-files.mjs",
+    "build": "BUILD_DATE=$(date -u +%Y-%m-%d) next build",
+    "start": "next start",
+    "lint": "next lint",
+    "vercel": "vercel",
+    "vercel:login": "vercel login",
+    "vercel:link": "vercel link",
+    "vercel:env": "vercel env pull .env.local",
+    "vercel:deploy": "vercel --prod",
+    "supabase:setup-table": "node scripts/setup-supabase-table.mjs"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.107.0",
+    "next": "^15.3.3",
+    "react": "^19.1.0",
+    "react-dom": "^19.1.0"
+  },
+  "devDependencies": {
+    "@next/bundle-analyzer": "^15.3.3",
+    "@types/node": "^22.15.21",
+    "@types/react": "^19.1.4",
+    "@types/react-dom": "^19.1.5",
+    "postgres": "^3.4.9",
+    "typescript": "^5.8.3",
+    "vercel": "^54.7.1"
+  }
+}

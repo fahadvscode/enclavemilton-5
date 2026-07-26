@@ -1,0 +1,97 @@
+.bento {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.tile {
+  padding: 1.5rem 1.35rem;
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  min-height: 100%;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+
+.tile:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow);
+}
+
+.tileWide {
+  grid-column: 1 / -1;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  background: linear-gradient(135deg, var(--forest-deep), var(--forest));
+  color: #fff;
+  border: none;
+}
+
+.tileWide h3,
+.tileWide p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.tileWide p {
+  flex: 1;
+  min-width: 200px;
+  margin: 0;
+}
+
+.tag {
+  align-self: flex-start;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-soft);
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+}
+
+.desc {
+  color: var(--muted);
+  flex: 1;
+  font-size: 0.95rem;
+}
+
+.tile a:not(.btn) {
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--accent);
+  margin-top: 0.35rem;
+}
+
+.tile a:not(.btn):hover {
+  text-decoration: underline;
+}
+
+.tileWide :global(.btn--outline) {
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+
+.tileWide :global(.btn--outline):hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #fff;
+}
+
+@media (max-width: 768px) {
+  .bento {
+    grid-template-columns: 1fr;
+  }
+
+  .tileWide {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

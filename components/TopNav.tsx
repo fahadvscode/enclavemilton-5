@@ -1,0 +1,34 @@
+import Image from "next/image";
+import Link from "next/link";
+import { IMAGES } from "@/lib/images";
+import styles from "./TopNav.module.css";
+
+export default function TopNav() {
+  return (
+    <header className={styles.header}>
+      <div className={`container ${styles.inner}`}>
+        <Link href="/" className={styles.logo}>
+          <Image
+            src={IMAGES.logo}
+            alt="The Enclave Milton Townhomes by Sundial Homes"
+            width={180}
+            height={48}
+            className={styles.logoImg}
+            priority
+          />
+          <span className={styles.logoText}>
+            Sundial Homes
+            <small>The Enclave Milton</small>
+          </span>
+        </Link>
+        <nav className={styles.nav} aria-label="Primary">
+          <Link href="/floor-plans">Floor plans</Link>
+          <Link href="/schools-and-area">Schools &amp; area</Link>
+          <Link href="/#register" className={styles.cta}>
+            Get details
+          </Link>
+        </nav>
+      </div>
+    </header>
+  );
+}

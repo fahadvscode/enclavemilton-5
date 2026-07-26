@@ -1,0 +1,95 @@
+.section {
+  padding-block: clamp(3rem, 6vw, 4.5rem);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.35fr 0.85fr;
+  gap: 2.5rem;
+  align-items: start;
+}
+
+.kicker {
+  margin: 0 0 0.65rem;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent-warm);
+}
+
+.body {
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 40rem;
+}
+
+.body strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+.aside {
+  padding: 1.35rem 1.25rem;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: var(--radius);
+}
+
+.asideTitle {
+  font-size: 0.95rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.dl {
+  margin: 0;
+  display: grid;
+  gap: 0.65rem;
+}
+
+.dl div {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr;
+  gap: 0.5rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.dl div:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.dl dt {
+  margin: 0;
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.dl dd {
+  margin: 0;
+  font-weight: 500;
+  color: #fff;
+}
+
+.inlineLink {
+  color: #fff;
+  font-weight: 600;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.inlineLink:hover {
+  color: rgba(255, 255, 255, 0.85);
+}
+
+@media (max-width: 860px) {
+  .grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+}

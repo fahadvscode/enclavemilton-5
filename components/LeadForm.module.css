@@ -1,0 +1,111 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.formCompact {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.55rem;
+}
+
+@media (max-width: 768px) {
+  .field input,
+  .field select {
+    font-size: 1rem;
+  }
+
+  .formCompact .field input,
+  .formCompact .field select {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.field label {
+  font-size: 0.75rem;
+  font-weight: 650;
+  color: var(--ink);
+}
+
+.field input,
+.field select {
+  width: 100%;
+  padding: 0.7rem 0.8rem;
+  font: inherit;
+  font-size: 0.95rem;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--paper);
+  color: var(--text);
+}
+
+.formCompact .field input,
+.formCompact .field select {
+  padding: 0.55rem 0.65rem;
+  font-size: 0.9rem;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--moss);
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(47, 90, 66, 0.18);
+}
+
+.disclaimer {
+  margin: 0;
+  font-size: 0.7rem;
+  line-height: 1.4;
+  color: var(--muted);
+}
+
+.formCompact .disclaimer {
+  font-size: 0.65rem;
+  line-height: 1.35;
+}
+
+.error {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #b91c1c;
+}
+
+.success {
+  padding: 1rem;
+  background: rgba(47, 90, 66, 0.08);
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--moss);
+}
+
+.successTitle {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  color: var(--ink);
+  margin: 0 0 0.5rem;
+}
+
+.formCompact :global(.btn) {
+  padding: 0.7rem 1rem;
+  font-size: 0.88rem;
+  width: 100%;
+}

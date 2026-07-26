@@ -1,0 +1,61 @@
+.band {
+  padding: clamp(2.5rem, 5vw, 4rem) 0;
+  background: var(--forest-deep);
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.bandLight {
+  background: var(--cream-deep);
+  color: var(--ink);
+}
+
+.bandLight h2 {
+  color: var(--ink);
+}
+
+.bandLight p {
+  color: var(--muted);
+}
+
+.inner {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+
+.band h2 {
+  color: #fff;
+}
+
+.band p {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.disclaimer {
+  font-size: 0.75rem;
+  line-height: 1.45;
+  opacity: 0.8;
+  margin-top: 0.75rem;
+}
+
+.bandLight .disclaimer {
+  opacity: 1;
+  color: var(--muted);
+}
+
+.form {
+  padding: 1.25rem;
+  background: var(--paper);
+  color: var(--ink);
+  border-radius: var(--radius);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+@media (max-width: 860px) {
+  .inner {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
+  }
+}

@@ -1,0 +1,276 @@
+import { communityLocation } from "@/data/location";
+import { HOME_FAQ } from "./faq";
+import { formatSqft, getAllModels, siteData } from "./floor-plans";
+import { IMAGES } from "./images";
+import { BUILD_DATE, DEVELOPMENT_GEO, SITE_NAME_LONG, SITE_URL } from "./site";
+
+const IDS = {
+  website: `${SITE_URL}/#website`,
+  builder: `${SITE_URL}/#builder`,
+  residence: `${SITE_URL}/#residence`,
+  offer: `${SITE_URL}/#offer`,
+  place: `${SITE_URL}/#place`,
+  faq: `${SITE_URL}/#faq`,
+  saleEvent: `${SITE_URL}/#sale-event`,
+};
+
+const residenceDescription =
+  "The Enclave Milton Sundial Homes is a master-planned freehold townhome community by Sundial Homes on Britannia Road in Milton, Ontario, Canada — also searched as Sundial Homes The Enclave, Sundial Homes Milton, The Enclave Milton, and The Enclave Milton Townhomes. Village Collection back-to-back layouts and Park Collection traditional two- and three-storey townhomes serve Halton Region buyers. Occupancy is communicated for 2027. The site sits between James Snow Parkway and Fourth Line with planned trails, a village square, and a future elementary school. Highway 401, Highway 407, and Milton GO support GTA commuting.";
+
+export function homepageGraph() {
+  const priceValidUntil = `${new Date().getFullYear() + 1}-12-31`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": IDS.website,
+        url: SITE_URL,
+        name: SITE_NAME_LONG,
+        alternateName: [
+          "The Enclave Milton Sundial Homes",
+          "Sundial Homes The Enclave",
+          "Sundial Homes Milton",
+          "The Enclave Milton",
+          "The Enclave Milton Townhomes",
+          "The Enclave",
+          "Enclave Milton",
+        ],
+        inLanguage: "en-CA",
+        publisher: { "@id": IDS.builder },
+        dateModified: BUILD_DATE,
+        datePublished: BUILD_DATE,
+      },
+      {
+        "@type": "Organization",
+        "@id": IDS.builder,
+        name: siteData.project.builder,
+        url: "https://www.sundialhomes.com",
+      },
+      {
+        "@type": "SingleFamilyResidence",
+        "@id": IDS.residence,
+        name: SITE_NAME_LONG,
+        description: residenceDescription,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: communityLocation.address,
+          addressLocality: "Milton",
+          addressRegion: "ON",
+          addressCountry: "CA",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: DEVELOPMENT_GEO.latitude,
+          longitude: DEVELOPMENT_GEO.longitude,
+        },
+        amenityFeature: [
+          {
+            "@type": "LocationFeatureSpecification",
+            name: "Highway 401",
+            value: "Approximately 3–5 minutes by car via James Snow Parkway",
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            name: "Milton GO Station",
+            value: "Approximately 8–10 minutes by car",
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            name: "Mattamy National Cycling Centre",
+            value: "Approximately 5–8 minutes by car",
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            name: "Toronto Premium Outlets",
+            value: "Approximately 10 minutes by car",
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            name: "Conservation Halton parks",
+            value: "Rattlesnake Point, Crawford Lake, Kelso, Hilton Falls within 10–15 minutes",
+          },
+        ],
+        image: {
+          "@type": "ImageObject",
+          url: IMAGES.hero,
+          caption: "The Enclave Milton Sundial Homes community rendering by Sundial Homes",
+        },
+        numberOfRooms: { "@type": "QuantitativeValue", minValue: 2, maxValue: 4 },
+      },
+      {
+        "@type": "Offer",
+        "@id": IDS.offer,
+        priceCurrency: "CAD",
+        lowPrice: 599990,
+        price: 599990,
+        priceValidUntil,
+        availability: "https://schema.org/InStock",
+        itemOffered: { "@id": IDS.residence },
+        seller: { "@id": IDS.builder },
+      },
+      {
+        "@type": "FAQPage",
+        "@id": IDS.faq,
+        mainEntity: HOME_FAQ.map((item) => ({
+          "@type": "Question",
+          name: item.question,
+          acceptedAnswer: { "@type": "Answer", text: item.answer },
+        })),
+      },
+      {
+        "@type": "Place",
+        "@id": IDS.place,
+        name: "The Enclave — Britannia Road, Milton, Ontario",
+        description: communityLocation.description,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: communityLocation.address,
+          addressLocality: "Milton",
+          addressRegion: "ON",
+          addressCountry: "CA",
+        },
+        geo: {
+          "@type": "GeoCoordinates",
+          latitude: DEVELOPMENT_GEO.latitude,
+          longitude: DEVELOPMENT_GEO.longitude,
+        },
+        amenityFeature: [
+          {
+            "@type": "LocationFeatureSpecification",
+            name: "Highway 401",
+            value: "Approximately 3–5 minutes by car",
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            name: "Milton GO Station",
+            value: "Approximately 8–10 minutes by car",
+          },
+          {
+            "@type": "LocationFeatureSpecification",
+            name: "Milton Education Village",
+            value: "162-hectare planned mixed-use adjacent to Britannia Road",
+          },
+        ],
+      },
+      {
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: SITE_URL },
+        ],
+      },
+      {
+        "@type": "SaleEvent",
+        "@id": IDS.saleEvent,
+        name: "The Enclave Milton — Now Selling",
+        description: "Freehold townhomes now selling at The Enclave Milton by Sundial Homes.",
+        startDate: "2026-05-01",
+        eventStatus: "https://schema.org/EventScheduled",
+        location: { "@id": IDS.place },
+        organizer: { "@id": IDS.builder },
+      },
+    ],
+  };
+}
+
+function breadcrumbList(items: Array<{ name: string; path: string }>) {
+  return {
+    "@type": "BreadcrumbList",
+    itemListElement: items.map((item, i) => ({
+      "@type": "ListItem",
+      position: i + 1,
+      name: item.name,
+      item: `${SITE_URL}${item.path}`,
+    })),
+  };
+}
+
+export function breadcrumbSchema(items: Array<{ name: string; path: string }>) {
+  return {
+    "@context": "https://schema.org",
+    ...breadcrumbList(items),
+  };
+}
+
+export function floorPlansListSchema() {
+  const items = getAllModels().map((entry, i) => ({
+    "@type": "ListItem",
+    position: i + 1,
+    name: entry.model,
+    url: `${SITE_URL}/floor-plans/${entry.slug}`,
+  }));
+
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    name: "The Enclave Milton Sundial Homes Floor Plans",
+    numberOfItems: items.length,
+    itemListElement: items,
+  };
+}
+
+export function modelPageGraph(
+  modelName: string,
+  slug: string,
+  collectionName: string,
+  sqftText: string
+) {
+  const url = `${SITE_URL}/floor-plans/${slug}`;
+  const priceValidUntil = `${new Date().getFullYear() + 1}-12-31`;
+
+  return {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Product",
+        name: `${modelName} — The Enclave Milton`,
+        description: `${modelName} freehold townhome at The Enclave Milton Sundial Homes (${collectionName}). ${sqftText}. Register for floor plan PDF and details.`,
+        url,
+        category: "New Home",
+        brand: { "@type": "Organization", name: siteData.project.builder },
+        offers: {
+          "@type": "Offer",
+          priceCurrency: "CAD",
+          price: 599990,
+          availability: "https://schema.org/InStock",
+          priceValidUntil,
+          seller: { "@type": "Organization", name: siteData.project.builder },
+        },
+        isRelatedTo: { "@id": `${SITE_URL}/#residence` },
+      },
+      breadcrumbList([
+        { name: "Home", path: "/" },
+        { name: "Floor plans", path: "/floor-plans" },
+        { name: modelName, path: `/floor-plans/${slug}` },
+      ]),
+      {
+        "@type": "WebPage",
+        name: `${modelName} — The Enclave Milton`,
+        url,
+        dateModified: BUILD_DATE,
+        inLanguage: "en-CA",
+        isPartOf: { "@id": `${SITE_URL}/#website` },
+      },
+    ],
+  };
+}
+
+export function modelSqftForSchema(model: ReturnType<typeof getAllModels>[number]) {
+  return formatSqft(model);
+}
+
+export function areaPageGraph() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    name: "Schools, commute, and amenities near The Enclave Milton Sundial Homes",
+    url: `${SITE_URL}/schools-and-area`,
+    description:
+      "Guide to Halton schools, Milton GO, highways, shopping, and recreation near Sundial Homes The Enclave on Britannia Road, Milton, Ontario.",
+    dateModified: BUILD_DATE,
+    inLanguage: "en-CA",
+    isPartOf: { "@id": IDS.website },
+    about: { "@id": IDS.place },
+  };
+}

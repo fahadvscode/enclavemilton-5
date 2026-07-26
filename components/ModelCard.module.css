@@ -1,0 +1,75 @@
+.card {
+  flex: 0 0 min(280px, 85vw);
+  scroll-snap-align: start;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.placeholder {
+  aspect-ratio: 4 / 3;
+  background: linear-gradient(145deg, #e2e8f0, #f1f5f9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-heading);
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.body {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.35rem;
+}
+
+.body h3 {
+  margin: 0;
+  font-size: 1.05rem;
+}
+
+.body h3 a {
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.body h3 a:hover {
+  color: var(--accent);
+}
+
+.meta,
+.sqft {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.price {
+  margin: 0.25rem 0 0.75rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+}
+
+.actions {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.actions .btn {
+  font-size: 0.8rem;
+  padding: 0.55rem 0.75rem;
+}
+
+@media (min-width: 769px) {
+  .card {
+    flex: unset;
+  }
+}
