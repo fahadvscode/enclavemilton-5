@@ -21,11 +21,11 @@ export default function HeroBlock() {
       
       <div className={`container ${styles.content}`}>
         <div className={styles.copy}>
-          <p className={styles.kicker}>Now Selling · Milton, Ontario</p>
+          <p className={styles.kicker}>Freehold Townhomes in Milton, Ontario</p>
           <h1 id="hero-heading">The Enclave Milton</h1>
           <p className={styles.lead}>
             A master-planned community of freehold Village back-to-back and Park traditional 
-            townhomes by {BUILDER_NAME} on Britannia Road.
+            townhomes by {BUILDER_NAME} on Britannia Road. Register for floor plans.
           </p>
         </div>
 

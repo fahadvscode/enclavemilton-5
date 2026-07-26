@@ -26,7 +26,7 @@ export default function HomePage() {
       <FaqSection />
       <CtaBand
         id="register-footer"
-        title="Request The Enclave Milton Sundial Homes floor plans"
+        title="Request The Enclave Milton floor plans"
         variant="light"
       />
     </>

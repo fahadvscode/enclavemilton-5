@@ -14,10 +14,10 @@ export default function KeywordIntro() {
               Sundial Homes The Enclave on Britannia Road
             </h2>
             <p className={styles.body}>
-              <strong>The Enclave Milton Sundial Homes</strong> is how many buyers describe this
+              <strong>The Enclave Milton</strong> is the full community name for this
               southeast Milton address: a Sundial Homes master-planned community of freehold
               townhomes between James Snow Parkway and Fourth Line. You may also see it listed as{" "}
-              <strong>The Enclave Milton</strong>, <strong>The Enclave Milton Townhomes</strong>,
+              <strong>The Enclave Milton Sundial Homes</strong>, <strong>The Enclave Milton Townhomes</strong>,
               or simply <strong>The Enclave</strong> when comparing new homes in Halton Region.
             </p>
             <p className={styles.body}>
