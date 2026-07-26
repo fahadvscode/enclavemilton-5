@@ -64,16 +64,18 @@
 }
 
 .cta {
-  padding: 0.55rem 1rem;
-  background: var(--accent-warm);
+  padding: 0.6rem 1.15rem;
+  background: var(--ink);
   color: #fff !important;
-  border-radius: var(--radius-sm);
+  border-radius: 99px;
   font-weight: 600 !important;
+  transition: all 0.2s;
 }
 
 .cta:hover {
-  background: #a84a2c;
+  background: #000;
   color: #fff !important;
+  transform: translateY(-1px);
 }
 
 @media (max-width: 720px) {

@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Fraunces, Source_Sans_3 } from "next/font/google";
+import { Playfair_Display, Manrope } from "next/font/google";
 import TopNav from "@/components/TopNav";
 import SiteFooter from "@/components/SiteFooter";
 import MobileStickyCta from "@/components/MobileStickyCta";
@@ -7,14 +7,14 @@ import { buildMetadata, defaultDescription, homePageTitle } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
-const display = Fraunces({
+const display = Playfair_Display({
   subsets: ["latin"],
-  weight: ["500", "600"],
+  weight: ["400", "500", "600"],
   display: "swap",
   variable: "--font-display",
 });
 
-const sans = Source_Sans_3({
+const sans = Manrope({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
