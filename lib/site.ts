@@ -7,6 +7,11 @@ export const SITE_NAME_LONG = "The Enclave Milton Sundial Homes";
 export const BUILDER_NAME = "Sundial Homes";
 export const BUILD_DATE = process.env.BUILD_DATE ?? new Date().toISOString().split("T")[0];
 
+/** Public starting price — keep in sync with schema.org Offer.lowPrice */
+export const STARTING_PRICE = 599990;
+export const STARTING_PRICE_DISPLAY = "$599,990";
+export const STARTING_PRICE_LABEL = `from ${STARTING_PRICE_DISPLAY}`;
+
 export const DEVELOPMENT_GEO = {
   latitude: 43.5085,
   longitude: -79.8628,

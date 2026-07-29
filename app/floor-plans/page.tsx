@@ -5,13 +5,13 @@ import ModelGrid from "@/components/ModelGrid";
 import CtaBand from "@/components/CtaBand";
 import { siteData } from "@/lib/floor-plans";
 import { buildMetadata } from "@/lib/seo";
+import { STARTING_PRICE_DISPLAY } from "@/lib/site";
 import { breadcrumbSchema, floorPlansListSchema } from "@/lib/structured-data";
 
 export const metadata: Metadata = buildMetadata({
   path: "/floor-plans",
-  pageTitle: "Sundial Homes The Enclave Floor Plans",
-  description:
-    "Floor plans for The Enclave Milton Sundial Homes — Village back-to-back and Park traditional freehold townhomes on Britannia Road, Milton, Ontario.",
+  pageTitle: `Floor Plans & Models from ${STARTING_PRICE_DISPLAY}`,
+  description: `Browse 15 The Enclave Milton floor plans by Sundial Homes — Village back-to-back and Park traditional freehold townhomes from ${STARTING_PRICE_DISPLAY} on Britannia Road. Register for PDFs and pricing.`,
 });
 
 export default function FloorPlansPage() {
@@ -28,8 +28,9 @@ export default function FloorPlansPage() {
           </h1>
           <p className="lead">
             Every layout at The Enclave Milton Sundial Homes on Britannia Road — Village
-            back-to-back townhomes and Park traditional two- and three-storey designs. Open a model
-            page or register for the full package.{" "}
+            back-to-back townhomes and Park traditional two- and three-storey designs,
+            starting from {STARTING_PRICE_DISPLAY}. Open a model page or register for the full package and
+            price list.{" "}
             <Link href="/schools-and-area">Schools, commute &amp; amenities guide</Link>.
           </p>
         </div>

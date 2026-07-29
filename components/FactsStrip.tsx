@@ -1,8 +1,9 @@
+import { STARTING_PRICE_DISPLAY } from "@/lib/site";
 import styles from "./FactsStrip.module.css";
 
 const FACTS = [
   { value: "15", label: "The Enclave floor plans" },
-  { value: "$599,990", label: "starting from" },
+  { value: STARTING_PRICE_DISPLAY, label: "starting from" },
   { value: "$0", label: "monthly maintenance" },
   { value: "Freehold", label: "Milton townhomes" },
   { value: "2027", label: "occupancy" },

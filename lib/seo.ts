@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { IMAGES } from "./images";
-import { SITE_NAME, SITE_NAME_LONG, SITE_URL } from "./site";
+import { SITE_NAME, SITE_NAME_LONG, SITE_URL, STARTING_PRICE_DISPLAY } from "./site";
 
 const TITLE_SUFFIX = "The Enclave Milton | Sundial Homes";
 
@@ -10,6 +10,8 @@ type PageMeta = {
   description: string;
   ogImage?: string;
   keywords?: string[];
+  /** When true, pageTitle is used as the full document title (no suffix). */
+  absoluteTitle?: boolean;
 };
 
 export const PRIMARY_KEYWORDS = [
@@ -24,6 +26,7 @@ export const PRIMARY_KEYWORDS = [
   "freehold townhomes Milton",
   "Britannia Road Milton new homes",
   "Milton townhomes for sale",
+  "The Enclave Milton from $599,990",
 ] as const;
 
 export function buildMetadata({
@@ -32,8 +35,9 @@ export function buildMetadata({
   description,
   ogImage = IMAGES.hero,
   keywords = [...PRIMARY_KEYWORDS],
+  absoluteTitle = false,
 }: PageMeta): Metadata {
-  const fullTitle = `${pageTitle} | ${TITLE_SUFFIX}`;
+  const fullTitle = absoluteTitle ? pageTitle : `${pageTitle} | ${TITLE_SUFFIX}`;
   const url = `${SITE_URL}${path}`;
 
   return {
@@ -59,7 +63,7 @@ export function buildMetadata({
   };
 }
 
-export const defaultDescription =
-  "The Enclave Milton — freehold townhomes by Sundial Homes on Britannia Road between James Snow Parkway and Fourth Line. Explore Village & Park collections and register for floor plans and community updates.";
+export const defaultDescription = `The Enclave Milton by Sundial Homes — freehold townhomes on Britannia Road from ${STARTING_PRICE_DISPLAY}. Register today for price list, floor plans, and VIP updates. Occupancy anticipated 2027.`;
 
-export const homePageTitle = "The Enclave Milton | Freehold Townhomes by Sundial Homes";
+/** Full homepage title — do not pass through the brand suffix again. */
+export const homePageTitle = `The Enclave Milton | Freehold Townhomes from ${STARTING_PRICE_DISPLAY}`;

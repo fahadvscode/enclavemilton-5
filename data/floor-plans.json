@@ -3,7 +3,9 @@
     "name": "The Enclave",
     "city": "Milton, Ontario",
     "builder": "Sundial Homes",
-    "occupancy": "2027"
+    "startingFrom": "$599,990",
+    "occupancy": "2027",
+    "noMaintenanceFees": true
   },
   "collections": [
     {

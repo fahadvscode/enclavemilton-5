@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import LeadForm from "./LeadForm";
+import { STARTING_PRICE_DISPLAY } from "@/lib/site";
 import styles from "./MobileStickyCta.module.css";
 
 export default function MobileStickyCta() {
@@ -46,7 +47,7 @@ export default function MobileStickyCta() {
           aria-expanded={open}
           aria-controls="mobile-register-sheet"
         >
-          Get floor plans &amp; details
+          Get floor plans from {STARTING_PRICE_DISPLAY}
         </button>
       </div>
 

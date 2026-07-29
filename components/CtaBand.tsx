@@ -1,5 +1,9 @@
 import LeadForm from "./LeadForm";
-import { IMAGE_DISCLAIMER, NON_REPRESENTATION_DISCLAIMER } from "@/lib/site";
+import {
+  IMAGE_DISCLAIMER,
+  NON_REPRESENTATION_DISCLAIMER,
+  STARTING_PRICE_DISPLAY,
+} from "@/lib/site";
 import styles from "./CtaBand.module.css";
 
 type CtaBandProps = {
@@ -10,7 +14,7 @@ type CtaBandProps = {
 
 export default function CtaBand({
   id = "register-mid",
-  title = "Register for The Enclave Milton Townhomes",
+  title = "Register today for The Enclave Milton",
   variant = "dark",
 }: CtaBandProps) {
   return (
@@ -23,8 +27,8 @@ export default function CtaBand({
         <div>
           <h2 id={`${id}-title`}>{title}</h2>
           <p>
-            Register for exclusive updates on The Enclave Milton layouts — Village back-to-back and Park
-            traditional townhomes by Sundial Homes.
+            Get the price list and floor plans for Village back-to-back and Park traditional freehold
+            townhomes by Sundial Homes — starting from {STARTING_PRICE_DISPLAY}.
           </p>
           <p className={styles.disclaimer}>{NON_REPRESENTATION_DISCLAIMER}</p>
           <p className={styles.disclaimer}>{IMAGE_DISCLAIMER}</p>

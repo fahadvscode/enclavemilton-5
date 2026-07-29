@@ -1,4 +1,5 @@
 import { AREA_FAQ, type FaqItem } from "@/data/area-faq";
+import { STARTING_PRICE_DISPLAY } from "./site";
 
 export type { FaqItem };
 
@@ -35,8 +36,7 @@ export const PRODUCT_FAQ: FaqItem[] = [
   },
   {
     question: "What are prices at The Enclave Milton?",
-    answer:
-      "Model-specific pricing, elevations, and lot premiums are shared when you register on this site.",
+    answer: `Homes at The Enclave Milton start from ${STARTING_PRICE_DISPLAY}. Model-specific pricing, elevations, deposit schedules, and lot premiums are shared when you register on this site for the price list and floor plans.`,
   },
   {
     question: "Do Enclave townhomes charge monthly maintenance fees?",
@@ -91,7 +91,7 @@ export const PRODUCT_FAQ: FaqItem[] = [
   {
     question: "How do I receive floor plans for The Enclave Milton Sundial Homes?",
     answer:
-      "Use the registration form on this site with your contact details and model interest. Floor plan PDFs and builder updates are typically emailed after you register — check spam if nothing arrives within a few minutes.",
+      "Use the registration form on this site with your contact details and model interest. The price list and floor plan PDFs are typically emailed after you register — check spam if nothing arrives within a few minutes.",
   },
   {
     question: "Is this Sundial Homes' official website?",

@@ -9,13 +9,13 @@ import CtaBand from "@/components/CtaBand";
 import JsonLd from "@/components/JsonLd";
 import { communityLocation } from "@/data/location";
 import { buildMetadata } from "@/lib/seo";
+import { STARTING_PRICE_DISPLAY } from "@/lib/site";
 import { areaPageGraph, breadcrumbSchema } from "@/lib/structured-data";
 
 export const metadata: Metadata = buildMetadata({
   path: "/schools-and-area",
-  pageTitle: "Schools & Area — The Enclave Milton Sundial Homes",
-  description:
-    "Living near Sundial Homes The Enclave on Britannia Road: HDSB and HCDSB schools, Milton GO, highways, shopping, parks, and area FAQs. Verify school catchment before you buy.",
+  pageTitle: "Schools, Commute & Amenities Guide",
+  description: `Schools, Milton GO, Highway 401, shopping, and parks near The Enclave Milton by Sundial Homes on Britannia Road. Freehold townhomes from ${STARTING_PRICE_DISPLAY} — register for floor plans and pricing.`,
 });
 
 export default function SchoolsAndAreaPage() {

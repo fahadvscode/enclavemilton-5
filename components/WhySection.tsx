@@ -1,13 +1,14 @@
+import { STARTING_PRICE_DISPLAY } from "@/lib/site";
 import styles from "./WhySection.module.css";
 
 const POINTS = [
   {
     title: "Sundial Homes in southeast Milton",
-    body: "The Enclave Milton Sundial Homes anchors Britannia Road between James Snow Parkway and Fourth Line — a Halton address buyers track when searching Sundial Homes Milton.",
+    body: `The Enclave Milton Sundial Homes anchors Britannia Road between James Snow Parkway and Fourth Line — a Halton address buyers track when searching Sundial Homes Milton. Now selling from ${STARTING_PRICE_DISPLAY}.`,
   },
   {
     title: "Freehold townhome ownership",
-    body: "Both Village and Park collections are marketed as freehold layouts, appealing to buyers who want townhome living without condo-style maintenance fees.",
+    body: "Both Village and Park collections are marketed as freehold layouts with $0 monthly maintenance fees — a major advantage versus condo-style townhomes.",
   },
   {
     title: "Two collections, one master plan",

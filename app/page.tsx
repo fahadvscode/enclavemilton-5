@@ -20,13 +20,13 @@ export default function HomePage() {
       <CompareTable />
       <CtaBand
         id="register-mid"
-        title="Register for Sundial Homes The Enclave updates"
+        title="Get VIP access — price list & floor plans"
       />
       <GeoLocationHub />
       <FaqSection />
       <CtaBand
         id="register-footer"
-        title="Request The Enclave Milton floor plans"
+        title="Register today for The Enclave Milton"
         variant="light"
       />
     </>

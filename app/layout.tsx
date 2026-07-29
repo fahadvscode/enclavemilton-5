@@ -26,6 +26,7 @@ export const metadata: Metadata = {
   ...buildMetadata({
     pageTitle: homePageTitle,
     description: defaultDescription,
+    absoluteTitle: true,
   }),
 };
 

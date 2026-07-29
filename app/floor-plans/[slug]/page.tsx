@@ -8,6 +8,7 @@ import {
   getModelBySlug,
 } from "@/lib/floor-plans";
 import { buildMetadata } from "@/lib/seo";
+import { STARTING_PRICE_DISPLAY } from "@/lib/site";
 import { modelPageGraph } from "@/lib/structured-data";
 
 type Props = { params: Promise<{ slug: string }> };
@@ -28,8 +29,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
   return buildMetadata({
     path: `/floor-plans/${slug}`,
-    pageTitle: `${model.model} — ${sqft}`,
-    description: `${model.model} ${storey} freehold townhome at The Enclave Milton Sundial Homes (${collection.name}). ${sqft}. Register for floor plan PDF and community details.`,
+    pageTitle: `${model.model} Floor Plan — ${sqft}`,
+    description: `${model.model} ${storey} freehold townhome at The Enclave Milton by Sundial Homes (${collection.name}). ${sqft}. Homes from ${STARTING_PRICE_DISPLAY} — register for the floor plan PDF and current pricing.`,
   });
 }
 

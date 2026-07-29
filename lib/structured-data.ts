@@ -2,7 +2,14 @@ import { communityLocation } from "@/data/location";
 import { HOME_FAQ } from "./faq";
 import { formatSqft, getAllModels, siteData } from "./floor-plans";
 import { IMAGES } from "./images";
-import { BUILD_DATE, DEVELOPMENT_GEO, SITE_NAME_LONG, SITE_URL } from "./site";
+import {
+  BUILD_DATE,
+  DEVELOPMENT_GEO,
+  SITE_NAME_LONG,
+  SITE_URL,
+  STARTING_PRICE,
+  STARTING_PRICE_DISPLAY,
+} from "./site";
 
 const IDS = {
   website: `${SITE_URL}/#website`,
@@ -15,7 +22,7 @@ const IDS = {
 };
 
 const residenceDescription =
-  "The Enclave Milton Sundial Homes is a master-planned freehold townhome community by Sundial Homes on Britannia Road in Milton, Ontario, Canada — also searched as Sundial Homes The Enclave, Sundial Homes Milton, The Enclave Milton, and The Enclave Milton Townhomes. Village Collection back-to-back layouts and Park Collection traditional two- and three-storey townhomes serve Halton Region buyers. Occupancy is communicated for 2027. The site sits between James Snow Parkway and Fourth Line with planned trails, a village square, and a future elementary school. Highway 401, Highway 407, and Milton GO support GTA commuting.";
+  `The Enclave Milton Sundial Homes is a master-planned freehold townhome community by Sundial Homes on Britannia Road in Milton, Ontario, Canada — also searched as Sundial Homes The Enclave, Sundial Homes Milton, The Enclave Milton, and The Enclave Milton Townhomes. Homes start from ${STARTING_PRICE_DISPLAY}. Village Collection back-to-back layouts and Park Collection traditional two- and three-storey townhomes serve Halton Region buyers. Occupancy is communicated for 2027. The site sits between James Snow Parkway and Fourth Line with planned trails, a village square, and a future elementary school. Highway 401, Highway 407, and Milton GO support GTA commuting.`;
 
 export function homepageGraph() {
   const priceValidUntil = `${new Date().getFullYear() + 1}-12-31`;
@@ -103,8 +110,8 @@ export function homepageGraph() {
         "@type": "Offer",
         "@id": IDS.offer,
         priceCurrency: "CAD",
-        lowPrice: 599990,
-        price: 599990,
+        lowPrice: STARTING_PRICE,
+        price: STARTING_PRICE,
         priceValidUntil,
         availability: "https://schema.org/InStock",
         itemOffered: { "@id": IDS.residence },
@@ -164,7 +171,7 @@ export function homepageGraph() {
         "@type": "SaleEvent",
         "@id": IDS.saleEvent,
         name: "The Enclave Milton — Now Selling",
-        description: "Freehold townhomes now selling at The Enclave Milton by Sundial Homes.",
+        description: `Freehold townhomes now selling at The Enclave Milton by Sundial Homes from ${STARTING_PRICE_DISPLAY}. Register for price list and floor plans.`,
         startDate: "2026-05-01",
         eventStatus: "https://schema.org/EventScheduled",
         location: { "@id": IDS.place },
@@ -232,7 +239,7 @@ export function modelPageGraph(
         offers: {
           "@type": "Offer",
           priceCurrency: "CAD",
-          price: 599990,
+          price: STARTING_PRICE,
           availability: "https://schema.org/InStock",
           priceValidUntil,
           seller: { "@type": "Organization", name: siteData.project.builder },
